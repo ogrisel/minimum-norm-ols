@@ -12,7 +12,7 @@
 Consider the minimum norm OLS estimator in the underdetermined case:
 
 $ & &min_(w, w_0) 1/2 (w^T dot.op w + gamma w_0^2) \
-  &"s.t." &X dot.op w + w_0 dot.op 1_n = y $  <problem>
+  &"s.t." &X dot.op w + w_0 1_n = y $  <problem>
 
 - $X$ holds the input feature values and has shape $(n, p)$;
 - $y$ is the column vector has shape $(n, 1)$;
@@ -44,13 +44,13 @@ the solutions when $alpha -> 0$.
 Consider the centered data:
 
 $ X = X_c +  1_n dot.op overline(X)^T $
-$ y = y_c + overline(y) dot.op 1_n $
+$ y = y_c + overline(y) 1_n $
 
 We can rewrite the generic formulation of the problem in @problem as:
 
 $ & &min_(w, w_0) 1/2 (w^T dot.op w + gamma w_0^2) \
   &"s.t." &X_c dot.op w +  1_n dot.op overline(X)^T dot.op w
-   + w_0 dot.op 1_n = y_c + overline(y) dot.op 1_n $
+   + w_0 dot.op 1_n = y_c + overline(y) 1_n $
 
 Let's introduce Langrange multipliers $lambda$ to define our unconstrained
 objective function:
